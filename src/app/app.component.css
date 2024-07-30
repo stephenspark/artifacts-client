@@ -1,0 +1,19 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid var(--primary-color);
+}
+
+.app-nav {
+  flex: 1 1 0.2;
+}
+
+.app-content {
+  flex: 1 1 auto;
+}
+
+.app-footer {
+  flex: 1 1 0.2;
+}

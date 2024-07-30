@@ -1,0 +1,23 @@
+.navigation-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation-items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navigation-item {
+  padding: 1rem;
+  color: var(--primary-color-text);
+  border-radius: var(--border-radius);
+}
+
+.navigation-item:hover,
+.navigation-item.active {
+  cursor: pointer;
+  color: var(--highlight-text-color);
+  background-color: var(--highlight-bg);
+}
