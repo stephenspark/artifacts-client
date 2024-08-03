@@ -1,7 +1,3 @@
-<button (click)="getApiStatus()">Get Api Status</button>
-<div *ngIf="status$ | async">
-  <p>Status: {{ status$ | async | json }}</p>
-</div>
 <button (click)="getBankItems()">Get Bank Items</button>
 <div *ngIf="bankItems$ | async">
   <p>Status: {{ bankItems$ | async | json }}</p>

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ArtifactsStatusService, Status } from '../../services';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import {
@@ -15,23 +14,11 @@ import {
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
-export class DashboardComponent implements OnInit {
-  status$: Observable<Status> | undefined;
+export class DashboardComponent {
   bankItems$: Observable<BankItems> | undefined;
   bankGolds$: Observable<BankGolds> | undefined;
 
-  constructor(
-    private artifactsStatus: ArtifactsStatusService,
-    private artifactsMy: ArtifactsMyService,
-  ) {}
-
-  ngOnInit(): void {
-    this.getApiStatus();
-  }
-
-  getApiStatus() {
-    this.status$ = this.artifactsStatus.getStatus();
-  }
+  constructor(private artifactsMy: ArtifactsMyService) {}
 
   getBankItems() {
     this.bankItems$ = this.artifactsMy.getBankItems();
