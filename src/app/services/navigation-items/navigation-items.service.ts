@@ -2,16 +2,31 @@ import { Injectable } from '@angular/core';
 import { PrimeIcons } from 'primeng/api';
 
 export interface NavigationItem {
-  name: string;
-  link: string[];
+  label: string;
+  route: string[];
   icon: string;
 }
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
-    name: 'Dashboard',
-    link: ['/dashboard'],
+    label: 'Dashboard',
+    route: ['/dashboard'],
     icon: PrimeIcons.HOME,
+  },
+  {
+    label: 'Characters',
+    route: ['/characters'],
+    icon: PrimeIcons.USERS,
+  },
+  {
+    label: 'Grand Exchange',
+    route: ['/grand-exchange'],
+    icon: PrimeIcons.BUILDING_COLUMNS,
+  },
+  {
+    label: 'Account',
+    route: ['/account'],
+    icon: PrimeIcons.COG,
   },
 ];
 
