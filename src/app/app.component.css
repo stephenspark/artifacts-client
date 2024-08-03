@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  border: 1px solid var(--primary-color);
+  overflow-x: hidden;
 }
 
 .app-nav {

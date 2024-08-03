@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { PrimeNGConfig } from 'primeng/api';
+
 import { FooterComponent, NavigationComponent } from './components';
 
 @Component({
