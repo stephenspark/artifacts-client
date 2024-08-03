@@ -1,13 +1,12 @@
 <div class="navigation-container">
-  <div class="navigation-items-container">
-    <div
-      class="navigation-item"
-      *ngFor="let item of navigationItems"
-      [routerLink]="item.link"
-      routerLinkActive="active"
-    >
-      <i [class]="item.icon"></i>
-      {{ item.name | json }}
-    </div>
-  </div>
+  <p-tabMenu [model]="navigationItems">
+    <ng-template pTemplate="item" let-item>
+      <a [routerLink]="item.route" class="p-menuitem-link">
+        <span [class]="item.icon"></span>
+        <span class="ml-2">
+          {{ item.label }}
+        </span>
+      </a>
+    </ng-template>
+  </p-tabMenu>
 </div>
