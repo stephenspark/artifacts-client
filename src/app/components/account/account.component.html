@@ -1,0 +1,14 @@
+<div class="account-container">
+  <form class="token-form" [formGroup]="tokenForm" (ngSubmit)="saveToken()">
+    <label for="token-input">Token</label>
+    <input
+      pInputText
+      id="token-input"
+      type="text"
+      placeholder="Enter token"
+      formControlName="token"
+      required
+    />
+    <p-button label="Save" type="submit"></p-button>
+  </form>
+</div>

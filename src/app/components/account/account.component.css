@@ -1,0 +1,10 @@
+.account-container {
+  display: flex;
+  padding: 2em;
+}
+
+.token-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
