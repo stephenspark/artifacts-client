@@ -1,1 +1,26 @@
-<p>footer works!</p>
+<div class="footer-container">
+  <div class="left-footer">
+    <span>App v{{ appVersion }}.</span>
+    <span *ngIf="statusLoading">
+      Artifacts API v{{ status()?.data?.version }}
+    </span>
+  </div>
+  <div class="right-footer">
+    <ng-container *ngIf="statusLoading | async; else statusTemplate">
+      <span class="online-status">
+        <i class="pi pi-spin pi-spinner"></i>
+      </span>
+    </ng-container>
+    <ng-template #statusTemplate>
+      <span class="online-status">
+        <i
+          class="pi pi-circle-on"
+          [ngClass]="{ 'status-online': status()?.data?.status === 'online' }"
+        ></i>
+      </span>
+      <span>
+        {{ status()?.data?.characters_online }} characters online
+      </span>
+    </ng-template>
+  </div>
+</div>

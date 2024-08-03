@@ -1,0 +1,24 @@
+.footer-container {
+  display: flex;
+  background-color: var(--primary-100);
+  padding: 1em;
+}
+
+.footer-container .left-footer {
+  flex: 1 1 auto;
+  align-self: flex-start;
+}
+
+.footer-container .right-footer {
+  flex: 1 1 auto;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.online-status {
+  color: var(--red-600);
+}
+
+.online-status .status-online {
+  color: var(--green-600);
+}
