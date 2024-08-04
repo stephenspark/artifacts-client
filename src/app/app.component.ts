@@ -13,7 +13,7 @@ import { FooterComponent, NavigationComponent } from './components';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  title = 'artifacts-client';
+  title = 'Artifacts MMO Client';
 
   constructor(private primengConfig: PrimeNGConfig) {}
 

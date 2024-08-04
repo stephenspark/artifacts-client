@@ -14,10 +14,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'artifacts-client' title`, () => {
+  it(`should have the 'artifacts MMO client' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('artifacts-client');
+    expect(app.title).toEqual('Artifacts MMO Client');
   });
 
   it('should render title', () => {
