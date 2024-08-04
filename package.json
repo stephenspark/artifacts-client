@@ -7,6 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "test:headless": "ng test --no-watch --no-progress --browsers=ChromeHeadless",
+    "test:e2e": "playwright test --ui",
+    "test:e2e:headless": "playwright test",
     "lint": "ng lint"
   },
   "private": true,
@@ -28,7 +30,9 @@
     "@angular-devkit/build-angular": "^18.1.2",
     "@angular/cli": "^18.1.2",
     "@angular/compiler-cli": "^18.1.0",
+    "@playwright/test": "^1.45.3",
     "@types/jasmine": "~5.1.0",
+    "@types/node": "^22.1.0",
     "angular-eslint": "18.1.0",
     "eslint": "^9.6.0",
     "eslint-config-prettier": "^9.1.0",
@@ -38,6 +42,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "playwright": "^1.45.3",
     "prettier": "3.3.3",
     "typescript": "~5.5.2",
     "typescript-eslint": "8.0.0-alpha.38"
