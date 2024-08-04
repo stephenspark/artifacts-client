@@ -5,6 +5,7 @@ export interface NavigationItem {
   label: string;
   route: string[];
   icon: string;
+  requiresToken: boolean;
 }
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
@@ -12,21 +13,25 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     label: 'Dashboard',
     route: ['/dashboard'],
     icon: PrimeIcons.HOME,
+    requiresToken: true,
   },
   {
     label: 'Characters',
     route: ['/characters'],
     icon: PrimeIcons.USERS,
+    requiresToken: true,
   },
   {
     label: 'Grand Exchange',
     route: ['/grand-exchange'],
     icon: PrimeIcons.BUILDING_COLUMNS,
+    requiresToken: true,
   },
   {
     label: 'Account',
     route: ['/account'],
     icon: PrimeIcons.COG,
+    requiresToken: false,
   },
 ];
 

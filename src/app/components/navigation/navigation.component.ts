@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavigationItemsService, NavigationItem } from '../../services';
+import {
+  NavigationItemsService,
+  NavigationItem,
+  TokenService,
+} from '../../services';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TabMenuModule } from 'primeng/tabmenu';
@@ -13,7 +17,13 @@ import { TabMenuModule } from 'primeng/tabmenu';
 })
 export class NavigationComponent {
   navigationItems: NavigationItem[];
-  constructor(private navigationItemsService: NavigationItemsService) {
+  token: string;
+
+  constructor(
+    private navigationItemsService: NavigationItemsService,
+    private tokenService: TokenService,
+  ) {
+    this.token = this.tokenService.token;
     this.navigationItems = this.navigationItemsService.navigationItems;
   }
 }
