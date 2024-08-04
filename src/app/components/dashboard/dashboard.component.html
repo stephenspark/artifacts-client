@@ -1,8 +1,10 @@
-<button (click)="getBankItems()">Get Bank Items</button>
-<div *ngIf="bankItems$ | async">
-  <p>Status: {{ bankItems$ | async | json }}</p>
-</div>
-<button (click)="getBankGolds()">Get Bank Golds</button>
-<div *ngIf="bankGolds$ | async">
-  <p>Status: {{ bankGolds$ | async | json }}</p>
+<div class="dashboard-container content-container">
+  <button (click)="getBankItems()">Get Bank Items</button>
+  <div *ngIf="bankItems$ | async">
+    <p>Status: {{ bankItems$ | async | json }}</p>
+  </div>
+  <button (click)="getBankGolds()">Get Bank Golds</button>
+  <div *ngIf="bankGolds$ | async">
+    <p>Status: {{ bankGolds$ | async | json }}</p>
+  </div>
 </div>
