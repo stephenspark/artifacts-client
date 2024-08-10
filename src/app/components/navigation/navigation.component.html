@@ -2,7 +2,6 @@
   <p-tabMenu [model]="navigationItems">
     <ng-template pTemplate="item" let-item>
       <a
-        *ngIf="(item.requiresToken && token !== '') || !item.requiresToken"
         [routerLink]="item.route"
         class="p-menuitem-link"
       >

@@ -14,7 +14,7 @@ export const authHeadersInterceptor: HttpInterceptorFn = (req, next) => {
     req = req.clone({
       url: `${apiUrl}` + req.url.replace('http://localhost:4200', ''),
       headers: req.headers
-        .set('Authorization', `Bearer ${apiToken}d`)
+        .set('Authorization', `Bearer ${apiToken}`)
         .set('Accept', 'application/json')
         .set('Content-Type', 'application/json'),
     });
