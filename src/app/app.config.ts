@@ -11,11 +11,15 @@ import {
 
 import { routes } from './app.routes';
 import { authHeadersInterceptor } from './interceptors/auth-headers/auth-headers.interceptor';
+import { authInvalidInterceptor } from './interceptors/auth-invalid/auth-invalid.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
-    provideHttpClient(withFetch(), withInterceptors([authHeadersInterceptor])),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([authHeadersInterceptor, authInvalidInterceptor]),
+    ),
     provideRouter(routes),
   ],
 };
