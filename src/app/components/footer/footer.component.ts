@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 import { Observable, Subject, interval } from 'rxjs';
 import { startWith, switchMap, tap } from 'rxjs/operators';
 
-import { ArtifactsStatusService, Status } from '../../services';
+import {
+  ArtifactsStatusService,
+  Status,
+} from '../../services/artifacts/status/artifacts-status.service';
 
 import packageJson from '../../../../package.json';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -27,7 +30,6 @@ export class FooterComponent {
   statusLoading: Subject<boolean> = new Subject<boolean>();
 
   constructor(private artifactsStatusService: ArtifactsStatusService) {
-    // Set up polling every 10 seconds
     this.status$ = interval(10000).pipe(
       startWith(0),
       tap(() => this.statusLoading.next(true)),
@@ -35,7 +37,6 @@ export class FooterComponent {
       tap(() => this.statusLoading.next(false)),
     );
 
-    // Convert the polling observable to a signal
     this.status = toSignal(this.status$);
   }
 }

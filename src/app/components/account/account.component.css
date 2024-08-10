@@ -1,5 +1,6 @@
 .account-container {
   display: flex;
+  flex-direction: column;
 }
 
 .token-form {

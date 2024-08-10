@@ -1,6 +1,7 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SERVICE_GROUP } from '../../../interceptors';
+import { SERVICE_GROUP } from '../../../interceptors/auth-headers/auth-headers.interceptor';
+import { Gold } from '../../../shared/models/artifacts';
 
 export interface BankItems {
   data: [
@@ -13,12 +14,6 @@ export interface BankItems {
   page: number;
   size: number;
   pages?: number;
-}
-
-export interface BankGolds {
-  data: {
-    quantity: number;
-  };
 }
 
 @Injectable({
@@ -38,7 +33,7 @@ export class ArtifactsMyService {
   }
 
   getBankGolds() {
-    return this.http.get<BankGolds>('/my/bank/gold', {
+    return this.http.get<Gold>('/my/bank/gold', {
       context: new HttpContext().set(SERVICE_GROUP, 'artifacts'),
     });
   }

@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { TokenService } from '../../services';
+import { TokenService } from '../../services/token/token.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [ReactiveFormsModule, InputTextModule, ButtonModule],
+  imports: [CardModule, ReactiveFormsModule, InputTextModule, ButtonModule],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css',
 })

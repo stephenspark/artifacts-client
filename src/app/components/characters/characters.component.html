@@ -1,0 +1,10 @@
+<div class="characters-container content-container">
+  <div class="characters-list">
+    <div *ngFor="let character of characters()?.data">
+      <div class="character">
+        <div class="character-name">{{ character.name }}</div>
+        <div class="character-level">{{ character.level }}</div>
+      </div>
+    </div>
+  </div>
+</div>

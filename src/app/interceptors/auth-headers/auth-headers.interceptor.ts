@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { HttpContextToken, HttpInterceptorFn } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { TokenService } from '../../services';
+import { TokenService } from '../../services/token/token.service';
 
 export const SERVICE_GROUP = new HttpContextToken(() => 'default');
 

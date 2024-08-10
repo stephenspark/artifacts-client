@@ -4,7 +4,7 @@
     <p>Status: {{ bankItems$ | async | json }}</p>
   </div>
   <button (click)="getBankGolds()">Get Bank Golds</button>
-  <div *ngIf="bankGolds$ | async">
-    <p>Status: {{ bankGolds$ | async | json }}</p>
+  <div *ngIf="gold$ | async">
+    <p>Status: {{ gold$ | async | json }}</p>
   </div>
 </div>

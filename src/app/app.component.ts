@@ -3,7 +3,8 @@ import { RouterOutlet } from '@angular/router';
 
 import { PrimeNGConfig } from 'primeng/api';
 
-import { FooterComponent, NavigationComponent } from './components';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @Component({
   selector: 'app-root',

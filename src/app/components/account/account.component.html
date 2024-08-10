@@ -1,14 +1,19 @@
 <div class="account-container content-container">
-  <form class="token-form" [formGroup]="tokenForm" (ngSubmit)="saveToken()">
-    <label for="token-input">Token</label>
-    <input
-      pInputText
-      id="token-input"
-      type="text"
-      placeholder="Enter token"
-      formControlName="token"
-      required
-    />
-    <p-button label="Save" type="submit"></p-button>
-  </form>
+  <p-card header="Artifacts API Token">
+    <form class="token-form" [formGroup]="tokenForm" (ngSubmit)="saveToken()">
+      <input
+        pInputText
+        id="token"
+        type="text"
+        placeholder="Enter token"
+        formControlName="token"
+        required
+      />
+      <small>
+        Rest assured, your token will not be logged or stored anywhere other
+        than your browser's local storage.
+      </small>
+      <p-button label="Save" type="submit"></p-button>
+    </form>
+  </p-card>
 </div>

@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import {
   ArtifactsMyService,
-  BankGolds,
   BankItems,
 } from '../../services/artifacts/my/artifacts-my.service';
+import { Gold } from '../../shared/models/artifacts';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +16,7 @@ import {
 })
 export class DashboardComponent {
   bankItems$: Observable<BankItems> | undefined;
-  bankGolds$: Observable<BankGolds> | undefined;
+  gold$: Observable<Gold> | undefined;
 
   constructor(private artifactsMy: ArtifactsMyService) {}
 
@@ -25,6 +25,6 @@ export class DashboardComponent {
   }
 
   getBankGolds() {
-    this.bankGolds$ = this.artifactsMy.getBankGolds();
+    this.gold$ = this.artifactsMy.getBankGolds();
   }
 }

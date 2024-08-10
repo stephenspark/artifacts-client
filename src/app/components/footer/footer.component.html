@@ -1,26 +1,20 @@
 <div class="footer-container">
-  <div class="left-footer">
-    <span>App v{{ appVersion }}.</span>
-    <span *ngIf="statusLoading">
-      Artifacts API v{{ status()?.data?.version }}
+  <ng-container *ngIf="statusLoading | async; else statusTemplate">
+    <span class="online-status">
+      <i class="pi pi-spin pi-spinner"></i>
     </span>
-  </div>
-  <div class="right-footer">
-    <ng-container *ngIf="statusLoading | async; else statusTemplate">
-      <span class="online-status">
-        <i class="pi pi-spin pi-spinner"></i>
-      </span>
-    </ng-container>
-    <ng-template #statusTemplate>
-      <span class="online-status">
-        <i
-          class="pi pi-circle-on"
-          [ngClass]="{ 'status-online': status()?.data?.status === 'online' }"
-        ></i>
-      </span>
-      <span>
-        {{ status()?.data?.characters_online }} characters online
-      </span>
-    </ng-template>
-  </div>
+  </ng-container>
+  <ng-template #statusTemplate>
+    <span class="online-status">
+      <i
+        class="pi pi-circle-on"
+        [ngClass]="{ 'status-online': status()?.data?.status === 'online' }"
+      ></i>
+    </span>
+    <small> {{ status()?.data?.characters_online }} characters online </small>
+  </ng-template>
+  <small>| App v{{ appVersion }} |</small>
+  <small *ngIf="statusLoading">
+    Artifacts API v{{ status()?.data?.version }}
+  </small>
 </div>

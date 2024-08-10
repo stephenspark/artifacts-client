@@ -10,7 +10,7 @@ import {
 } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { authHeadersInterceptor } from './interceptors';
+import { authHeadersInterceptor } from './interceptors/auth-headers/auth-headers.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
