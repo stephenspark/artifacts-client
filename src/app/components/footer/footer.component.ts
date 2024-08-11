@@ -1,6 +1,11 @@
-import { ChangeDetectionStrategy, Component, Signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  signal,
+  Signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Observable, Subject, interval } from 'rxjs';
+import { Observable, interval } from 'rxjs';
 import { startWith, switchMap, tap } from 'rxjs/operators';
 
 import {
@@ -28,14 +33,14 @@ export class FooterComponent {
 
   status$: Observable<Status>;
   status: Signal<Status | undefined>;
-  statusLoading: Subject<boolean> = new Subject<boolean>();
+  statusLoading = signal(false);
 
   constructor(private artifactsStatusService: ArtifactsStatusService) {
     this.status$ = interval(30000).pipe(
       startWith(0),
-      tap(() => this.statusLoading.next(true)),
+      tap(() => this.statusLoading.set(true)),
       switchMap(() => this.artifactsStatusService.getStatus()),
-      tap(() => this.statusLoading.next(false)),
+      tap(() => this.statusLoading.set(false)),
     );
 
     this.status = toSignal(this.status$);

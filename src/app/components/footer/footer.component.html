@@ -1,5 +1,5 @@
 <div class="footer-container">
-  @if (statusLoading | async) {
+  @if (statusLoading()) {
     <span class="online-status">
       <i class="pi pi-spin pi-spinner"></i>
     </span>
@@ -10,8 +10,8 @@
         [ngClass]="{ 'status-online': status()?.data?.status === 'online' }"
       ></i>
     </span>
+    <small> {{ status()?.data?.characters_online }} characters online </small>
+    <small>| App v{{ appVersion }} |</small>
+    <small> Artifacts API v{{ status()?.data?.version }} </small>
   }
-  <small> {{ status()?.data?.characters_online }} characters online </small>
-  <small>| App v{{ appVersion }} |</small>
-  <small> Artifacts API v{{ status()?.data?.version }} </small>
 </div>
