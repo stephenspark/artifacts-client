@@ -1,7 +1,5 @@
 <div class="characters-container content-container">
-  <ng-container
-    *ngFor="let character of characters()?.data; trackBy: trackCharacter"
-  >
+  @for (character of characters()?.data; track character.name) {
     <p-card
       class="character-card"
       [header]="character.name"
@@ -43,5 +41,5 @@
         </div>
       </ng-template>
     </p-card>
-  </ng-container>
+  }
 </div>
