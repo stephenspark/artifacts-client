@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   NavigationItemsService,
   NavigationItem,
@@ -14,6 +14,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
   imports: [CommonModule, RouterLink, RouterLinkActive, TabMenuModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent {
   navigationItems: NavigationItem[];

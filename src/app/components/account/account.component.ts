@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TokenService } from '../../services/token/token.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
@@ -11,6 +11,7 @@ import { CardModule } from 'primeng/card';
   imports: [CardModule, ReactiveFormsModule, InputTextModule, ButtonModule],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountComponent {
   tokenForm = new FormGroup({

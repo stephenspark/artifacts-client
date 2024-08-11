@@ -1,4 +1,4 @@
-import { Component, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Signal } from '@angular/core';
 import {
   ArtifactsMyCharactersService,
   CharacterData,
@@ -11,6 +11,7 @@ import { ArtifactsImageComponent } from '../../shared/components/artifacts/image
 import { ButtonModule } from 'primeng/button';
 import { ActiveCharacterService } from '../../services/active-character/active-character.service';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { Character } from '../../shared/models/artifacts';
 
 @Component({
   selector: 'app-characters',
@@ -24,6 +25,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
   ],
   templateUrl: './characters.component.html',
   styleUrl: './characters.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharactersComponent {
   characters$: Observable<CharacterData>;
@@ -46,5 +48,9 @@ export class CharactersComponent {
   setActiveCharacter(activeCharacterName: string) {
     this.activeCharacterService.activeCharacter = activeCharacterName;
     this.activeCharacterName = this.activeCharacterService.activeCharacter;
+  }
+
+  trackCharacter(index: number, character: Character) {
+    return character ? character.name : undefined;
   }
 }

@@ -1,11 +1,26 @@
 import { Routes } from '@angular/router';
-import { AccountComponent } from './components/account/account.component';
-import { CharactersComponent } from './components/characters/characters.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'characters', component: CharactersComponent },
-  { path: 'account', component: AccountComponent },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./components/dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent,
+      ),
+  },
+  {
+    path: 'characters',
+    loadComponent: () =>
+      import('./components/characters/characters.component').then(
+        (m) => m.CharactersComponent,
+      ),
+  },
+  {
+    path: 'account',
+    loadComponent: () =>
+      import('./components/account/account.component').then(
+        (m) => m.AccountComponent,
+      ),
+  },
 ];
