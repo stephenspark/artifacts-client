@@ -30,7 +30,7 @@ export class FooterComponent {
   statusLoading: Subject<boolean> = new Subject<boolean>();
 
   constructor(private artifactsStatusService: ArtifactsStatusService) {
-    this.status$ = interval(10000).pipe(
+    this.status$ = interval(30000).pipe(
       startWith(0),
       tap(() => this.statusLoading.next(true)),
       switchMap(() => this.artifactsStatusService.getStatus()),

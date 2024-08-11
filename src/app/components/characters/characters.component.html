@@ -1,9 +1,45 @@
 <div class="characters-container content-container">
   <ng-container *ngFor="let character of characters()?.data">
-    <p-card [header]="character.name" class="character">
-      <app-artifacts-image imageType="characters" [imageName]="character.skin"/>
-      <div class="character-name">{{ character.name }}</div>
-      <div class="character-level">{{ character.level }}</div>
+    <p-card
+      class="character-card"
+      [header]="character.name"
+      [subheader]="'Level ' + character.level"
+    >
+      <ng-template pTemplate="content">
+        <div class="character-card-content">
+          <div class="character-level">
+            <span>Current XP: {{ character.xp }} | </span>
+            <span>XP to Level: {{ character.max_xp }}</span>
+            <p-progressBar [value]="(character.xp / character.max_xp) * 100">
+              <ng-template pTemplate="content" let-value>
+                <span>{{ value / 100 | percent }}</span>
+              </ng-template>
+            </p-progressBar>
+          </div>
+          <div class="character-image">
+            <app-artifacts-image
+              imageType="characters"
+              [imageName]="character.skin"
+            />
+          </div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <div class="character-card-footer">
+          <p-button
+            label="Active"
+            (onClick)="setActiveCharacter(character.name)"
+            (keydown)="setActiveCharacter(character.name)"
+            [raised]="true"
+          />
+          <p-button
+            label="Details"
+            (onClick)="setActiveCharacter(character.name)"
+            (keydown)="setActiveCharacter(character.name)"
+            [raised]="true"
+          />
+        </div>
+      </ng-template>
     </p-card>
   </ng-container>
 </div>

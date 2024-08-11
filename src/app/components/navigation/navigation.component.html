@@ -1,10 +1,7 @@
 <div class="navigation-container">
   <p-tabMenu [model]="navigationItems">
     <ng-template pTemplate="item" let-item>
-      <a
-        [routerLink]="item.route"
-        class="p-menuitem-link"
-      >
+      <a [routerLink]="item.route" class="p-menuitem-link">
         <span [class]="item.icon"></span>
         <span class="ml-2">
           {{ item.label }}

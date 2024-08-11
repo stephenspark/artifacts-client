@@ -1,3 +1,17 @@
 .characters-container {
   display: flex;
+  gap: 2em;
+}
+
+.character-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.character-card-footer {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
 }
