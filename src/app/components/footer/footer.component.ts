@@ -1,4 +1,4 @@
-import { Component, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable, Subject, interval } from 'rxjs';
 import { startWith, switchMap, tap } from 'rxjs/operators';
@@ -17,6 +17,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
   imports: [CommonModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
   appVersion: string = packageJson.version;

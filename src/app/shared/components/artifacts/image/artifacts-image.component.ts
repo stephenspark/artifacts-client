@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 export type ImageTypes =
   | 'characters'
@@ -14,6 +19,7 @@ export type ImageTypes =
   imports: [],
   templateUrl: './artifacts-image.component.html',
   styleUrl: './artifacts-image.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ArtifactsImageComponent implements OnInit {
   baseUrl = 'https://artifactsmmo.com/images';
