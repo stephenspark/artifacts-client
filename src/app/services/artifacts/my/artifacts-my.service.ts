@@ -1,6 +1,6 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SERVICE_GROUP } from '../../../interceptors/auth-headers/auth-headers.interceptor';
+import { SERVICE_GROUP } from '../../../interceptors/auth/headers/auth-headers.interceptor';
 import { Gold } from '../../../shared/models/artifacts';
 
 export interface BankItems {

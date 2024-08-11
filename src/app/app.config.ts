@@ -10,8 +10,8 @@ import {
 } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { authHeadersInterceptor } from './interceptors/auth-headers/auth-headers.interceptor';
-import { authInvalidInterceptor } from './interceptors/auth-invalid/auth-invalid.interceptor';
+import { authHeadersInterceptor } from './interceptors/auth/headers/auth-headers.interceptor';
+import { authInvalidInterceptor } from './interceptors/auth/invalid/auth-invalid.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [

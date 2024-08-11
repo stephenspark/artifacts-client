@@ -1,7 +1,7 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Character, Gold } from '../../../shared/models/artifacts';
-import { SERVICE_GROUP } from '../../../interceptors/auth-headers/auth-headers.interceptor';
+import { SERVICE_GROUP } from '../../../interceptors/auth/headers/auth-headers.interceptor';
 
 export interface ItemEffect {
   name: string;
