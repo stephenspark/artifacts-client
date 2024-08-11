@@ -11,7 +11,6 @@ import { ArtifactsImageComponent } from '../../shared/components/artifacts/image
 import { ButtonModule } from 'primeng/button';
 import { ActiveCharacterService } from '../../services/active-character/active-character.service';
 import { ProgressBarModule } from 'primeng/progressbar';
-import { Character } from '../../shared/models/artifacts';
 
 @Component({
   selector: 'app-characters',
@@ -48,9 +47,5 @@ export class CharactersComponent {
   setActiveCharacter(activeCharacterName: string) {
     this.activeCharacterService.activeCharacter = activeCharacterName;
     this.activeCharacterName = this.activeCharacterService.activeCharacter;
-  }
-
-  trackCharacter(index: number, character: Character) {
-    return character ? character.name : undefined;
   }
 }

@@ -1,10 +1,9 @@
 <div class="footer-container">
-  <ng-container *ngIf="statusLoading | async; else statusTemplate">
+  @if (statusLoading()) {
     <span class="online-status">
       <i class="pi pi-spin pi-spinner"></i>
     </span>
-  </ng-container>
-  <ng-template #statusTemplate>
+  } @else {
     <span class="online-status">
       <i
         class="pi pi-circle-on"
@@ -12,9 +11,7 @@
       ></i>
     </span>
     <small> {{ status()?.data?.characters_online }} characters online </small>
-  </ng-template>
-  <small>| App v{{ appVersion }} |</small>
-  <small *ngIf="statusLoading">
-    Artifacts API v{{ status()?.data?.version }}
-  </small>
+    <small>| App v{{ appVersion }} |</small>
+    <small> Artifacts API v{{ status()?.data?.version }} </small>
+  }
 </div>

@@ -1,10 +1,10 @@
 <div class="dashboard-container content-container">
   <button (click)="getBankItems()">Get Bank Items</button>
-  <div *ngIf="bankItems$ | async">
-    <p>Status: {{ bankItems$ | async | json }}</p>
-  </div>
+  @if (bankItems$ | async; as bankItems) {
+    <p>Status: {{ bankItems.data }}</p>
+  }
   <button (click)="getBankGolds()">Get Bank Golds</button>
-  <div *ngIf="gold$ | async">
-    <p>Status: {{ gold$ | async | json }}</p>
-  </div>
+  @if (gold$ | async; as gold) {
+    <p>Status: {{ gold.data.quantity }}</p>
+  }
 </div>
