@@ -6,11 +6,13 @@ import {
 import { Observable } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
+import { CardModule } from 'primeng/card';
+import { ArtifactsImageComponent } from '../../shared/components/artifacts/image/artifacts-image.component';
 
 @Component({
   selector: 'app-characters',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardModule, ArtifactsImageComponent],
   templateUrl: './characters.component.html',
   styleUrl: './characters.component.css',
 })

@@ -1,10 +1,9 @@
 <div class="characters-container content-container">
-  <div class="characters-list">
-    <div *ngFor="let character of characters()?.data">
-      <div class="character">
-        <div class="character-name">{{ character.name }}</div>
-        <div class="character-level">{{ character.level }}</div>
-      </div>
-    </div>
-  </div>
+  <ng-container *ngFor="let character of characters()?.data">
+    <p-card [header]="character.name" class="character">
+      <app-artifacts-image imageType="characters" [imageName]="character.skin"/>
+      <div class="character-name">{{ character.name }}</div>
+      <div class="character-level">{{ character.level }}</div>
+    </p-card>
+  </ng-container>
 </div>
