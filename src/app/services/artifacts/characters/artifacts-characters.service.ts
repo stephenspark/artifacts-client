@@ -1,4 +1,4 @@
-import { HttpClient, HttpContext } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SERVICE_GROUP } from '../../../interceptors/auth/headers/auth-headers.interceptor';
 import { Character } from '../../../shared/models/artifacts';
@@ -26,6 +26,10 @@ export interface InventorySlot {
   quantity: number;
 }
 
+export interface CharacterData {
+  data: Character[] | Character;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -45,19 +49,23 @@ export class ArtifactsCharactersService {
     );
   }
 
-  getAllCharacters(sort: SortType, page = 1, size = 50) {
-    return this.http.get<Character[]>('/characters/', {
+  getAllCharacters(sort?: SortType, page = 1, size = 50) {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+
+    if (sort) {
+      params = params.set('sort', sort);
+    }
+
+    return this.http.get<CharacterData>('/characters/', {
       context: new HttpContext().set(SERVICE_GROUP, 'artifacts'),
-      params: {
-        page,
-        size,
-        sort,
-      },
+      params,
     });
   }
 
   getCharacter(name: string) {
-    return this.http.get<Character>(`/characters/${name}`, {
+    return this.http.get<CharacterData>(`/characters/${name}`, {
       context: new HttpContext().set(SERVICE_GROUP, 'artifacts'),
     });
   }

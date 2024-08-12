@@ -10,7 +10,7 @@ import { startWith, switchMap, tap } from 'rxjs/operators';
 
 import {
   ArtifactsStatusService,
-  Status,
+  StatusData,
 } from '../../services/artifacts/status/artifacts-status.service';
 
 import packageJson from '../../../../package.json';
@@ -31,8 +31,8 @@ export class FooterComponent {
     '',
   );
 
-  status$: Observable<Status>;
-  status: Signal<Status | undefined>;
+  status$: Observable<StatusData>;
+  status: Signal<StatusData | undefined>;
   statusLoading = signal(false);
 
   constructor(private artifactsStatusService: ArtifactsStatusService) {
