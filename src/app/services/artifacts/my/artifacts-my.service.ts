@@ -1,19 +1,19 @@
-import { HttpClient, HttpContext } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SERVICE_GROUP } from '../../../interceptors/auth/headers/auth-headers.interceptor';
-import { Gold } from '../../../shared/models/artifacts';
+import { BaseAPIResponse, Gold } from '../../../shared/models/artifacts';
 
-export interface BankItems {
+export interface BankItems extends BaseAPIResponse {
   data: [
     {
       code: string;
       quantity: number;
     },
   ];
-  total: number;
-  page: number;
-  size: number;
-  pages?: number;
+}
+
+export interface PasswordChange {
+  message: string;
 }
 
 @Injectable({
@@ -22,13 +22,18 @@ export interface BankItems {
 export class ArtifactsMyService {
   constructor(private http: HttpClient) {}
 
-  getBankItems(page = 1, size = 50) {
+  getBankItems(item_code?: string, page = 1, size = 50) {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString());
+
+    if (item_code) {
+      params = params.set('item_code', item_code);
+    }
+
     return this.http.get<BankItems>('/my/bank/items', {
       context: new HttpContext().set(SERVICE_GROUP, 'artifacts'),
-      params: {
-        page,
-        size,
-      },
+      params,
     });
   }
 
@@ -37,6 +42,4 @@ export class ArtifactsMyService {
       context: new HttpContext().set(SERVICE_GROUP, 'artifacts'),
     });
   }
-
-  // postChangePassword() {}
 }

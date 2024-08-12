@@ -1,35 +1,14 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Character, Gold } from '../../../shared/models/artifacts';
+import {
+  BaseAPIResponse,
+  Character,
+  Gold,
+  Item,
+  SimpleItem,
+} from '../../../shared/models/artifacts';
 import { SERVICE_GROUP } from '../../../interceptors/auth/headers/auth-headers.interceptor';
 
-export interface ItemEffect {
-  name: string;
-  value: number;
-}
-
-export interface SimpleItem {
-  code: string;
-  quantity: number;
-}
-
-export interface Craft {
-  skill?: string;
-  level?: number;
-  items?: SimpleItem[];
-  quantity?: number;
-}
-
-export interface Item {
-  name: string;
-  code: string;
-  level: number;
-  type: string;
-  subtype: string;
-  description: string;
-  effects?: ItemEffect[];
-  craft?: Craft[];
-}
 export type ItemSlot =
   | 'weapon'
   | 'shield'
@@ -232,12 +211,8 @@ export interface Log {
   created_at: string;
 }
 
-export interface LogData {
+export interface LogData extends BaseAPIResponse {
   data: Log[];
-  total: number;
-  page: number;
-  size: number;
-  pages?: number;
 }
 
 export interface CharacterData {

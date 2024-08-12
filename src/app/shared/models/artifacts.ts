@@ -3,6 +3,13 @@ import {
   InventorySlot,
 } from '../../services/artifacts/characters/artifacts-characters.service';
 
+export interface BaseAPIResponse {
+  page: number;
+  size: number;
+  total: number;
+  data: unknown;
+}
+
 export interface Character {
   name: string;
   skin: CharacterSkin;
@@ -81,4 +88,59 @@ export interface Gold {
   data: {
     quantity: number;
   };
+}
+
+export interface ItemEffect {
+  name: string;
+  value: number;
+}
+
+export interface SimpleItem {
+  code: string;
+  quantity: number;
+}
+
+export interface Craft {
+  skill?: string;
+  level?: number;
+  items?: SimpleItem[];
+  quantity?: number;
+}
+
+export interface Item {
+  name: string;
+  code: string;
+  level: number;
+  type: string;
+  subtype: string;
+  description: string;
+  effects?: ItemEffect[];
+  craft?: Craft[];
+}
+
+export interface DropRate {
+  code: string;
+  rate: number;
+  min_quantity: number;
+  max_quantity: number;
+}
+
+export interface MapContent {
+  type: string;
+  code: string;
+}
+
+export interface Map {
+  name: string;
+  skin: string;
+  x: number;
+  y: number;
+  content: MapContent;
+}
+
+export interface GEItem {
+  code: string;
+  stock: number;
+  sell_price?: number;
+  buy_price?: number;
 }
