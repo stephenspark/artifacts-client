@@ -14,8 +14,6 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -36,6 +34,11 @@ jobs:
     needs: build
 
     steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -45,4 +48,5 @@ jobs:
             -Dsonar.projectKey=stephenspark_artifacts-client
             -Dsonar.organization=stephenspark
             -Dsonar.javascript.coverage.reportPaths=coverage/lcov.info
+            -Dsonar.sources=src
             -Dsonar.test.inclusions=**/*.spec.ts
