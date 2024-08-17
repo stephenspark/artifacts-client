@@ -41,11 +41,10 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          projectBaseDir: ./artifacts-client
           args: >
             -Dsonar.projectKey=stephenspark_artifacts-client
             -Dsonar.organization=stephenspark
             -Dsonar.javascript.coverage.reportPaths=coverage/lcov.info
-            -Dsonar.sources=
+            -Dsonar.sources=src/
             -Dsonar.tests=
             -Dsonar.verbose=
