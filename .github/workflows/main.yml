@@ -39,6 +39,6 @@ jobs:
           args: >
             -Dsonar.projectKey=stephenspark_artifacts-client
             -Dsonar.organization=stephenspark
-            -Dsonar.javascript.coverage.reportPaths=coverage/lcov.info
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.sources=src/app
             -Dsonar.test.inclusions=**/*.spec.ts
