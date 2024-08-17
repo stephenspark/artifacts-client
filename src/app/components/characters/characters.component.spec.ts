@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CharactersComponent } from './characters.component';
 import { of } from 'rxjs';
 import { ArtifactsMyCharactersService } from '../../services/artifacts/my/artifacts-my-characters.service';
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 class MockArtifactsMyCharactersService {
   getMyCharacters() {
@@ -18,6 +19,7 @@ describe('CharactersComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CharactersComponent],
       providers: [
+        provideExperimentalZonelessChangeDetection(),
         {
           provide: ArtifactsMyCharactersService,
           useClass: MockArtifactsMyCharactersService,

@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavigationComponent } from './navigation.component';
 import { RouterModule } from '@angular/router';
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -10,6 +11,7 @@ describe('NavigationComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NavigationComponent, RouterModule.forRoot([])],
+      providers: [provideExperimentalZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NavigationComponent);
