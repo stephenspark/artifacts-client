@@ -2,9 +2,9 @@ name: SonarCloud analysis
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -20,10 +20,9 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          args:
-            -Dsonar.projectKey=stephenspark_artifacts-client
+          args: -Dsonar.projectKey=stephenspark_artifacts-client
             -Dsonar.organization=stephenspark
-            -Dsonar.sources=src
-            #-Dsonar.tests=
-            #-Dsonar.verbose=
+            -Dsonar.sources=
+            -Dsonar.tests=
+            -Dsonar.verbose=
           projectBaseDir: .
