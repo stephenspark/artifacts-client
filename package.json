@@ -7,8 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "test:headless": "ng test --no-watch --no-progress --browsers=ChromeHeadless",
-    "test:e2e": "playwright test --ui",
-    "test:e2e:headless": "playwright test",
+    "e2e": "playwright test --ui",
+    "e2e:headless": "playwright test",
     "lint": "ng lint"
   },
   "private": true,
