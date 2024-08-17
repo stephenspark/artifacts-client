@@ -1,11 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import {
-  ArtifactsMyService,
-  BankItems,
-} from '../../services/artifacts/my/artifacts-my.service';
-import { Gold } from '../../shared/models/artifacts';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,17 +9,4 @@ import { Gold } from '../../shared/models/artifacts';
   styleUrl: './dashboard.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardComponent {
-  bankItems$: Observable<BankItems> | undefined;
-  gold$: Observable<Gold> | undefined;
-
-  constructor(private artifactsMy: ArtifactsMyService) {}
-
-  getBankItems() {
-    this.bankItems$ = this.artifactsMy.getBankItems();
-  }
-
-  getBankGolds() {
-    this.gold$ = this.artifactsMy.getBankGolds();
-  }
-}
+export class DashboardComponent {}
