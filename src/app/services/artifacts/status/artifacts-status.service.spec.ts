@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ArtifactsStatusService } from './artifacts-status.service';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('ArtifactsStatusService', () => {
   let service: ArtifactsStatusService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
     service = TestBed.inject(ArtifactsStatusService);
   });
 
