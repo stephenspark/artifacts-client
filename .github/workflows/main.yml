@@ -30,3 +30,20 @@ jobs:
 
       - name: Lint code
         run: npm run lint
+
+  sonarcloud-analysis:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Analyze with SonarCloud
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: -Dsonar.projectKey=stephenspark_artifacts-client
+            -Dsonar.organization=stephenspark
+            -Dsonar.sources=
+            -Dsonar.tests=
+            -Dsonar.verbose=
+          projectBaseDir: .
