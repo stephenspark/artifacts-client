@@ -3,6 +3,7 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=stephenspark_artifacts-client&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=stephenspark_artifacts-client)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=stephenspark_artifacts-client&metric=coverage)](https://sonarcloud.io/summary/new_code?id=stephenspark_artifacts-client)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=stephenspark_artifacts-client&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=stephenspark_artifacts-client)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=stephenspark_artifacts-client&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=stephenspark_artifacts-client)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=stephenspark_artifacts-client&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=stephenspark_artifacts-client)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=stephenspark_artifacts-client&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=stephenspark_artifacts-client)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=stephenspark_artifacts-client&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=stephenspark_artifacts-client)
