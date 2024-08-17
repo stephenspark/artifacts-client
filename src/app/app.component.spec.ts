@@ -1,7 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { Component } from '@angular/core';
+import {
+  Component,
+  provideExperimentalZonelessChangeDetection,
+} from '@angular/core';
 import { of } from 'rxjs';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
@@ -27,6 +30,7 @@ describe('AppComponent', () => {
       imports: [AppComponent, RouterModule.forRoot([])],
       declarations: [MockNavigationComponent, MockFooterComponent],
       providers: [
+        provideExperimentalZonelessChangeDetection(),
         {
           provide: MockArtifactsStatusService,
           useClass: MockArtifactsStatusService,

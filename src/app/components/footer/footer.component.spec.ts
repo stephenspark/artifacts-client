@@ -3,6 +3,7 @@ import { of } from 'rxjs'; // Import 'of' from 'rxjs'
 
 import { FooterComponent } from './footer.component';
 import { ArtifactsStatusService } from '../../services/artifacts/status/artifacts-status.service'; // Import the service
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 class MockArtifactsStatusService {
   getStatus() {
@@ -18,6 +19,7 @@ describe('FooterComponent', () => {
     await TestBed.configureTestingModule({
       imports: [FooterComponent],
       providers: [
+        provideExperimentalZonelessChangeDetection(),
         {
           provide: ArtifactsStatusService,
           useClass: MockArtifactsStatusService,

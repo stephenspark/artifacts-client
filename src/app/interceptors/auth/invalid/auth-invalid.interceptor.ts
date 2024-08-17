@@ -8,11 +8,7 @@ export const authInvalidInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
-      if (
-        error.status === 401 ||
-        error.status === 403 ||
-        error.status === 452
-      ) {
+      if (error.status === 401 || error.status === 403) {
         router.navigate(['/account']);
       }
       return throwError(() => error);
