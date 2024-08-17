@@ -46,4 +46,4 @@ jobs:
             -Dsonar.organization=stephenspark
             -Dsonar.javascript.coverage.reportPaths=coverage/lcov.info
             -Dsonar.sources=src
-            -Dsonar.tests=**/*.spec.ts
+            -Dsonar.test.inclusions=**/*.spec.ts
